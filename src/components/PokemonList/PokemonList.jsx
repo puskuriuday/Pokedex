@@ -1,20 +1,24 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useDebugValue, useEffect, useState } from "react";
 import './PokemonList.css'
 import Pokemon from "../Pokemon/Pokemon";
+import { use } from "react";
 
 export default function PokemonList(){
 
     const [PokemonList , SetPokemonList] = useState([]);
     const [Loader , SetLoder] = useState(true);
+    const [pokedexurl , Setpokedexurl] = useState('https://pokeapi.co/api/v2/pokemon/');
+    const [next , setnext ] = useState('');
+    const [ prev , setprev ] = useState('');
 
     async function Pokemons(){
         SetLoder(true);
-        const Poke_url = "https://pokeapi.co/api/v2/pokemon/"
-        const response = await axios.get(Poke_url);
+        const response = await axios.get(pokedexurl);
+        setnext(response.data.next);
+        setprev(response.data.previous);
         const Data = response.data.results.map(async (Poke) => await axios.get(Poke.url));
         const PokeData = await axios.all(Data);
-        console.log(PokeData);
         const res = PokeData.map((pokemon) => {
             const Pokemon = pokemon.data;
             return {
@@ -24,15 +28,13 @@ export default function PokemonList(){
                 id : Pokemon.id
             }
         });
-        SetPokemonList(res);
-        console.log(res);
-        
+        SetPokemonList(res);        
         SetLoder(false);
     }
 
     useEffect(()=>{
         Pokemons();
-    },[]);
+    },[pokedexurl]);
 
     return(
         <div className="PokemonList-wrapper">
@@ -44,8 +46,8 @@ export default function PokemonList(){
                 }
             </div>
             <div className="controls">
-                <button>Prev</button>
-                <button>Next</button>
+                <button disabled={prev === null} onClick={() => Setpokedexurl(prev)} >Prev</button>
+                <button disabled={next === null} onClick={() => Setpokedexurl(next)} >Next</button>
             </div>
         </div>
     );
