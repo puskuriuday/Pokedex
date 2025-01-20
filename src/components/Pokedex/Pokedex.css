@@ -1,0 +1,9 @@
+.Pokedex-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+#Pokedex{
+    margin: 0.5rem auto;
+    letter-spacing: 0.5rem;
+}
