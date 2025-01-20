@@ -36,12 +36,17 @@ export default function PokemonList(){
 
     return(
         <div className="PokemonList-wrapper">
-            List of Pokemon
             <br />
-            {(Loader) ? "loading....." : 
-                PokemonList.map((poke) => <Pokemon Name={poke.Name} image={poke.image} key={poke.id} />
-                )
-            }
+            <div className="Pokemon-wrapper">
+                {(Loader) ? "loading....." : 
+                    PokemonList.map((poke) => <Pokemon Name={poke.Name} image={poke.image} key={poke.id} />
+                    )
+                }
+            </div>
+            <div className="controls">
+                <button>Prev</button>
+                <button>Next</button>
+            </div>
         </div>
     );
 }
