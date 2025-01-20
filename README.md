@@ -1,8 +1,13 @@
-# React + Vite
+# React Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is my first react project in this project i have used free poke api.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# To start this project locally 
+  1.clone this repo
+  2.cd Pokedex
+  3.npm install
+  4.npm run dev
+
+open any browser and hit the - [@localhost:5173](http://localhost:5173/)
