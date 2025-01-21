@@ -1,8 +1,8 @@
 import axios from "axios";
-import { useDebugValue, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import './PokemonList.css'
 import Pokemon from "../Pokemon/Pokemon";
-import { use } from "react";
+
 
 export default function PokemonList(){
 
@@ -41,7 +41,7 @@ export default function PokemonList(){
             <br />
             <div className="Pokemon-wrapper">
                 {(Loader) ? "loading....." : 
-                    PokemonList.map((poke) => <Pokemon Name={poke.Name} image={poke.image} key={poke.id} />
+                    PokemonList.map((poke) => <Pokemon Name={poke.Name} image={poke.image} key={poke.id} id = {poke.id} />
                     )
                 }
             </div>
