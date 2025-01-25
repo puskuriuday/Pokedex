@@ -27,7 +27,7 @@ export default function PokemonDetails(){
             <div>Height : {Pokemon.height}</div>
             <div>Weight : {Pokemon.weight}</div>
             <div className="pokemon-types">
-                {Pokemon.types.map((t) => <div key = {t} >{t} </div> )}
+                {/* {Pokemon.types.map((t) => <div key = {t} >{t} </div> )} */}
             </div>
         </div>
     );
