@@ -1,4 +1,4 @@
-# React Project
+## React Project
 
 This is my first react project in this project i have used free poke api.
 
